@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<!-- saved from url=(0080)http://web.archive.org/web/20150803144242fw_/http://cloudcharge.se/football.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><script src="./Football fanclub - Coming soon_files/analytics.js" type="text/javascript"></script>
+<script type="text/javascript">window.addEventListener('DOMContentLoaded',function(){var v=archive_analytics.values;v.service='wb';v.server_name='wwwb-app204.us.archive.org';v.server_ms=1790;archive_analytics.send_pageview({});});</script>
+<script type="text/javascript" src="./Football fanclub - Coming soon_files/bundle-playback.js" charset="utf-8"></script>
+<script type="text/javascript" src="./Football fanclub - Coming soon_files/wombat.js" charset="utf-8"></script>
+<script type="text/javascript">
+  __wm.init("http://web.archive.org/web");
+  __wm.wombat("http://cloudcharge.se/football.html","20150803144242","http://web.archive.org/","web","/_static/",
+	      "1438612962");
+</script>
+<link rel="stylesheet" type="text/css" href="./Football fanclub - Coming soon_files/banner-styles.css">
+<link rel="stylesheet" type="text/css" href="./Football fanclub - Coming soon_files/iconochive.css">
+<!-- End Wayback Rewrite JS Include -->
+
+<title>Football fanclub - Coming soon</title>
+</head>
+
+
+<body onload="setup()" onclick="clicked()" title="Click for more info">
+<audio src="Goto80_-_influensa.mp3" loop="true" autoplay="true"></audio> 
+
+
+<script>
+
+function clicked() {
+	window.open("mailto:info@football-fanclub.com");
+}
+
+
+var x = [];
+var y = [];
+var z = [];
+var xn = [];
+var yn = [];
+var zn = [];
+var x2d = [];
+var y2d = [];
+
+var mx = [];
+var my = [];
+var mz = [];
+var dx = [];
+var dy = [];
+var dz = [];
+
+
+var rotx = 0;
+var roty = 0.03;
+var rotz = 0.03;
+var rx = 0;	
+var ry = 0;
+var rz = 0;
+
+var canvas;
+var ctx; 
+var drawOrder = [0,1,2,3,0,4,5,6,7,4,5,1,2,6,7,3];
+
+var starMapX = [];
+var starMapY = [];
+var starMapZ = [];
+var starMapX2d = [];
+var starMapY2d = [];
+
+var counter = 0;
+
+function setupCube() {
+	mx[0] = -100; my[0] = 100; mz[0] = -100;
+	mx[1] = 100; my[1] = 100; mz[1] = -100;
+	mx[2] = 100; my[2] = -100; mz[2] = -100;
+	mx[3] = -100; my[3] = -100; mz[3] = -100;
+	mx[4] = -100; my[4] = 100; mz[4] = 100;
+	mx[5] = 100; my[5] = 100; mz[5] = 100;
+	mx[6] = 100; my[6] = -100; mz[6] = 100;
+	mx[7] = -100; my[7] = -100; mz[7] = 100;
+	var drawOrder = [0,1,2,3,0,4,5,6,7,4,5,1,2,6,7,3];
+}
+
+function setupPyramid() {
+	mx[0] = -100; my[0] = 100; mz[0] = -100;
+	mx[1] = 100; my[1] = 100; mz[1] = -100;
+	mx[2] = 100; my[2] = -100; mz[2] = -100;
+	mx[3] = -100; my[3] = -100; mz[3] = -100;
+	mx[4] = 0; my[4] = 141; mz[4] = 0;
+	mx[5] = 100; my[5] = 100; mz[5] = -100;
+	mx[6] = 0; my[6] = 141; mz[6] = 0;
+	mx[7] = -100; my[7] = -100; mz[7] = -100;
+	var drawOrder = [0,1,2,3,0,4,5,6,7,4,5,1,2,6,7,3];
+}
+
+function setupStar() {
+	mx[0] = -100; my[0] = 100; mz[0] = -100;
+	mx[1] = 100; my[1] = 100; mz[1] = -100;
+	mx[2] = 100; my[2] = -100; mz[2] = -100;
+	mx[3] = -100; my[3] = -100; mz[3] = -100;
+	mx[4] = 0; my[4] = 141; mz[4] = 100;
+	mx[5] = 141; my[5] = 0; mz[5] = 100;
+	mx[6] = 0; my[6] = -141; mz[6] = 100;
+	mx[7] = -141; my[7] = 0; mz[7] = 100;
+	var drawOrder = [0,1,2,3,0,4,5,6,7,4,5,1,2,6,7,3];
+
+}
+
+
+
+function setup() {
+	x[0] = -100; y[0] = 100; z[0] = -100;
+	x[1] = 100; y[1] = 100; z[1] = -100;
+	x[2] = 100; y[2] = -100; z[2] = -100;
+	x[3] = -100; y[3] = -100; z[3] = -100;
+	x[4] = -100; y[4] = 100; z[4] = 100;
+	x[5] = 100; y[5] = 100; z[5] = 100;
+	x[6] = 100; y[6] = -100; z[6] = 100;
+	x[7] = -100; y[7] = -100; z[7] = 100;
+	canvas = document.createElement("canvas");
+	canvas.setAttribute("width", window.innerWidth);
+	canvas.setAttribute("height", window.innerHeight);
+	canvas.setAttribute("style", "position: absolute; x:0; y:0;");
+	document.body.appendChild(canvas);
+
+	for(i = 0; i<400; i++) {
+		starMapX[i] = (Math.random() * window.innerWidth) - window.innerWidth/2;
+		starMapY[i] = (Math.random() * window.innerHeight) - window.innerHeight/2;	
+		starMapZ[i] = (Math.random() * 2000);		
+	}
+	for(i=0;i<8;i++) {
+		dx[i] = 0;
+		dy[i] = 0;
+		dz[i] = 0;
+	}
+	ctx = canvas.getContext("2d");
+	loop();
+	
+
+}
+
+
+document.onmousemove = getMouseXY;
+
+var mouseX = 0
+var mouseY = 0
+
+function getMouseXY(e) {
+  mouseX = e.pageX
+  mouseY = e.pageY
+
+  if (mouseX < 0){mouseX = 0}
+  if (mouseY < 0){mouseY = 0}  
+  return true
+}
+
+
+function loop() {
+
+	setInterval(function() {
+		ctx.fillStyle="#000";
+    		ctx.fillRect(0,0,window.innerWidth,window.innerHeight);
+	
+		rx += rotx;
+		ry += roty;
+		rz += rotz;
+		counter++;
+			
+		if(counter>50) {
+			var rand = Math.random(); 			
+			if(rand > 0.67) {
+				setupPyramid();
+			} else if(rand < 0.33){
+				setupCube();
+			} else {
+				setupStar();
+			}
+
+			morph();
+			counter=0;
+		}	
+		
+		if(counter < 10) {
+			for(i=0;i<8;i++) {
+				x[i] +=dx[i]
+				y[i] +=dy[i]
+				z[i] +=dz[i]
+			}		
+		}
+
+		rotate(rx,ry,rz);
+		translate();
+
+		ctx.beginPath();
+		ctx.moveTo(x2d[0] - 400,y2d[0] - window.innerHeight/3 - 50);
+		for(i=1; i<drawOrder.length; i++) {
+			ctx.lineTo(x2d[drawOrder[i]] - 400,y2d[drawOrder[i]] - window.innerHeight/3 - 50);
+		}
+		ctx.strokeStyle = "#FFF";
+		ctx.stroke();
+
+		ctx.beginPath();
+		ctx.moveTo(x2d[0] + 400,y2d[0] - window.innerHeight/3 - 50);
+		for(i=1; i<drawOrder.length; i++) {
+			ctx.lineTo(x2d[drawOrder[i]] + 400,y2d[drawOrder[i]] - window.innerHeight/3 - 50);
+		}
+		ctx.strokeStyle = "#FFF";
+		ctx.stroke();
+
+		for(i=0;i<400;i++) {
+			var colVal = 4096 - (2 * starMapZ[i]);
+			var col = "#" + colVal.toString(16).substr(0,1) + colVal.toString(16).substr(0,1) + colVal.toString(16).substr(0,1);	
+			ctx.fillStyle=col;
+	    		ctx.fillRect(starMapX2d[i],starMapY2d[i],4,4);
+		}
+		drawing = new Image() 
+		drawing.src = "footballfanclub.png" 
+		ctx.drawImage(drawing,window.innerWidth/2 - 214, window.innerHeight/4 - 100);
+
+		drawing2 = new Image() 
+		drawing2.src = "under_construction.png" 
+		ctx.drawImage(drawing2,window.innerWidth/2 - 380,window.innerHeight/4);
+
+
+		ctx.fillStyle="#FFF";
+		ctx.font="20px Georgia";
+		ctx.fillText('Music: "Influensa" by Goto80',window.innerWidth - 300,window.innerHeight - 30);
+
+	}, 30);
+}
+
+function morph() {
+	for(i=0;i<8;i++) {
+		dx[i] = (mx[i] - x[i]) / 10;
+		dy[i] = (my[i] - y[i]) / 10;
+		dz[i] = (mz[i] - z[i]) / 10;
+	}
+}
+
+function translate() {
+	for(i = 0; i < 8; i++) {
+		x2d[i] = (window.innerWidth/2) + (xn[i] / (zn[i]+1500) * window.innerHeight);
+		y2d[i] = (window.innerHeight/2) + (yn[i] / (zn[i]+1500)* window.innerHeight);
+	}
+	
+	for(i=0;i<400;i++) {
+		starMapX[i] -= (mouseX -window.innerWidth/2)/50 ;
+		starMapY[i] -= (mouseY -window.innerHeight/2)/50 ;
+ 		starMapX2d[i] = (window.innerWidth/2) + (starMapX[i] / (starMapZ[i]) * window.innerWidth);	
+		starMapY2d[i] = (window.innerHeight/2) + (starMapY[i] / (starMapZ[i]) * window.innerHeight);	
+		starMapZ[i] -=20;
+
+		if(starMapZ[i] < 200) { 
+			starMapZ[i]=1800;
+			starMapX[i] = (Math.random() * window.innerWidth) - window.innerWidth/2;
+			starMapY[i] = (Math.random() * window.innerHeight*2) - window.innerHeight;
+		}
+	}
+}
+
+function rotate(rx, ry, rz) {
+	for(i=0;i<8;i++) {	
+		xn[i] = x[i] * Math.cos(rz) + y[i] * Math.sin(rz);
+		yn[i] = -x[i] * Math.sin(rz) + y[i] * Math.cos(rz);
+		zn[i] = z[i];
+
+		xn[i] = xn[i] * Math.cos(ry) + zn[i] * Math.sin(ry);
+		yn[i] = yn[i];
+		zn[i] = -xn[i] * Math.sin(ry) + zn[i] * Math.cos(ry);
+
+		xn[i] = xn[i];
+		yn[i] = yn[i] * Math.cos(rx) + zn[i] * Math.sin(rx);
+		zn[i] = -yn[i] * Math.sin(rx) + zn[i] * Math.cos(rx);
+
+	}
+
+}
+
+</script>
+
+
+
+
+
+
+<!--
+     FILE ARCHIVED ON 14:42:42 Aug 03, 2015 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 12:55:34 Oct 12, 2021.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+-->
+<!--
+playback timings (ms):
+  captures_list: 396.395
+  exclusion.robots: 0.29
+  exclusion.robots.policy: 0.277
+  RedisCDXSource: 58.561
+  esindex: 0.011
+  LoadShardBlock: 310.729 (3)
+  PetaboxLoader3.datanode: 343.143 (4)
+  CDXLines.iter: 22.538 (3)
+  load_resource: 1389.939
+  PetaboxLoader3.resolve: 1283.654
+--><canvas width="1848" height="948" style="position: absolute; x:0; y:0;"></canvas></body></html>
