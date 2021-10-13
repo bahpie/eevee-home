@@ -125,7 +125,7 @@ function sineText(x, y, phi, text) {
 			
 		ctx.fillStyle="#F" + i+i;
 		ctx.font="60px Courier New";
-		ctx.fillText(text[i],x+i*30, y + Math.sin(phi + i) * 50);
+		ctx.fillText(text[i],x+i*30, y + Math.sin(phi + i/2) * 50);
 	}
 }
 
@@ -158,9 +158,9 @@ function loop() {
 			
 		if(counter>50) {
 			var rand = Math.random(); 			
-			if(rand > 0.67) {
+			if(rand > 1) {
 				setupPyramid();
-			} else if(rand < 0.33){
+			} else if(rand < 0.5){
 				setupCube();
 			} else {
 				setupStar();
@@ -182,17 +182,17 @@ function loop() {
 		translate();
 
 		ctx.beginPath();
-		ctx.moveTo(x2d[0] - 400,y2d[0] - window.innerHeight/3 - 50);
+		ctx.moveTo(x2d[0] - 400,y2d[0]);
 		for(i=1; i<drawOrder.length; i++) {
-			ctx.lineTo(x2d[drawOrder[i]] - 400,y2d[drawOrder[i]] - window.innerHeight/3 - 50);
+			ctx.lineTo(x2d[drawOrder[i]] - 400,y2d[drawOrder[i]]);
 		}
 		ctx.strokeStyle = "#FFF";
 		ctx.stroke();
 
 		ctx.beginPath();
-		ctx.moveTo(x2d[0] + 400,y2d[0] - window.innerHeight/3 - 50);
+		ctx.moveTo(x2d[0] + 400,y2d[0]);
 		for(i=1; i<drawOrder.length; i++) {
-			ctx.lineTo(x2d[drawOrder[i]] + 400,y2d[drawOrder[i]] - window.innerHeight/3 - 50);
+			ctx.lineTo(x2d[drawOrder[i]] + 400,y2d[drawOrder[i]]);
 		}
 		ctx.strokeStyle = "#FFF";
 		ctx.stroke();
