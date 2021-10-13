@@ -11,7 +11,6 @@ function clicked() {
 	window.open("mailto:bjorn@eevee.se");
 }
 
-
 var x = [];
 var y = [];
 var z = [];
@@ -47,6 +46,8 @@ var starMapX2d = [];
 var starMapY2d = [];
 
 var counter = 0;
+
+var textAngle = 0;
 
 function setupCube() {
 	mx[0] = -100; my[0] = 100; mz[0] = -100;
@@ -116,6 +117,16 @@ function setup() {
 	loop();
 	
 
+}
+
+function sineText(x, y, phi, text) {
+
+	for(i = 0; i < text.length;i++) {
+			
+		ctx.fillStyle="#F" + i+i;
+		ctx.font="60px Courier New";
+		ctx.fillText(text[i],x+i*30, y + Math.sin(phi + i) * 50);
+	}
 }
 
 
@@ -192,18 +203,13 @@ function loop() {
 			ctx.fillStyle=col;
 	    		ctx.fillRect(starMapX2d[i],starMapY2d[i],4,4);
 		}
-		drawing = new Image() 
-		drawing.src = "footballfanclub.png" 
-		ctx.drawImage(drawing,window.innerWidth/2 - 214, window.innerHeight/4 - 100);
-
-		drawing2 = new Image() 
-		drawing2.src = "under_construction.png" 
-		ctx.drawImage(drawing2,window.innerWidth/2 - 380,window.innerHeight/4);
 
 
-		ctx.fillStyle="#FFF";
-		ctx.font="20px Georgia";
-		ctx.fillText('Eevee Consulting AB',window.innerWidth - 300,window.innerHeight - 30);
+
+		
+		sineText(window.innerWidth/2-220,window.innerHeight/2 - 50,textAngle, "EEVEE CONSULTING");
+		
+		textAngle+=.1;
 
 	}, 30);
 }
@@ -223,8 +229,8 @@ function translate() {
 	}
 	
 	for(i=0;i<400;i++) {
-		starMapX[i] -= (mouseX -window.innerWidth/2)/50 ;
-		starMapY[i] -= (mouseY -window.innerHeight/2)/50 ;
+		starMapX[i] -= 1;//(window.innerWidth/2)/50 ;
+		starMapY[i] -= 1;//(window.innerHeight/2)/50 ;
  		starMapX2d[i] = (window.innerWidth/2) + (starMapX[i] / (starMapZ[i]) * window.innerWidth);	
 		starMapY2d[i] = (window.innerHeight/2) + (starMapY[i] / (starMapZ[i]) * window.innerHeight);	
 		starMapZ[i] -=20;
@@ -259,27 +265,3 @@ function rotate(rx, ry, rz) {
 
 
 
-
-
-
-<!--
-     FILE ARCHIVED ON 14:42:42 Aug 03, 2015 AND RETRIEVED FROM THE
-     INTERNET ARCHIVE ON 12:55:34 Oct 12, 2021.
-     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
-
-     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
-     SECTION 108(a)(3)).
--->
-<!--
-playback timings (ms):
-  captures_list: 396.395
-  exclusion.robots: 0.29
-  exclusion.robots.policy: 0.277
-  RedisCDXSource: 58.561
-  esindex: 0.011
-  LoadShardBlock: 310.729 (3)
-  PetaboxLoader3.datanode: 343.143 (4)
-  CDXLines.iter: 22.538 (3)
-  load_resource: 1389.939
-  PetaboxLoader3.resolve: 1283.654
---><canvas width="1848" height="948" style="position: absolute; x:0; y:0;"></canvas></body></html>
