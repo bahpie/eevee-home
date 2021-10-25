@@ -28,7 +28,7 @@ var dy = [];
 var dz = [];
 
 
-var rotx = 0;
+var rotx = 0.00;
 var roty = 0.04;
 var rotz = 0.03;
 var rx = 0;	
@@ -58,7 +58,7 @@ function setupCube() {
 	mx[5] = 100; my[5] = 100; mz[5] = 100;
 	mx[6] = 100; my[6] = -100; mz[6] = 100;
 	mx[7] = -100; my[7] = -100; mz[7] = 100;
-	var drawOrder = [0,1,2,3,0,4,5,6,7,4,5,1,2,6,7,3];
+	drawOrder = [0,1,2,3,0,4,5,6,7,4,5,1,2,6,7,3];
 }
 
 function setupPyramid() {
@@ -70,7 +70,7 @@ function setupPyramid() {
 	mx[5] = 0; my[5] = -100; mz[5] = 0;
 	mx[6] = -100; my[6] = 0; mz[6] = 0;
 	mx[7] = 0; my[7] = 0; mz[7] = 0;
-	var drawOrder = [0,1,0,2,0,3,0,4,0,5,0,6,0,7,1,2,2,3,3,4,4,5,5,6,6,7];
+	drawOrder = [0,1,0,2,0,3,0,4,0,5,0,6,0,7];
 }
 
 function setupStar() {
@@ -82,7 +82,7 @@ function setupStar() {
 	mx[5] = 141; my[5] = 0; mz[5] = 100;
 	mx[6] = 0; my[6] = -141; mz[6] = 100;
 	mx[7] = -141; my[7] = 0; mz[7] = 100;
-	var drawOrder = [0,1,2,3,0,4,5,6,7,4,5,1,2,6,7,3];
+	drawOrder = [0,1,2,3,0,4,5,6,7,4,5,1,2,6,7,3];
 
 }
 
@@ -116,7 +116,7 @@ function setup() {
 	ctx = canvas.getContext("2d");
 	loop();
 	
-
+	console.log("v.1.0.3");
 }
 
 function sineText(x, y, phi, text) {
@@ -165,7 +165,7 @@ function loop() {
 			} else {
 				setupStar();
 			}
-
+			//console.log(drawOrder);
 			morph();
 			counter=0;
 		}	
@@ -224,7 +224,7 @@ function morph() {
 }
 
 function translate() {
-	for(i = 0; i < drawOrder.length	; i++) {
+	for(i = 0; i < drawOrder.length; i++) {
 		x2d[i] = (window.innerWidth/2) + (xn[i] / (zn[i]+1500) * window.innerHeight) * 2;
 		y2d[i] = (window.innerHeight/2) + (yn[i] / (zn[i]+1500)* window.innerHeight) * 2;
 	}
