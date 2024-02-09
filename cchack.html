@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Cchack</title>
+  </head>
+  <body>
+  <h1>Enter connector ID here</h1>
+    <input id="connid"></input>
+    <button onclick="openlink()">Start</button>
+  </body>
+  <script>
+    function openlink() {
+	    var id = document.getElementById("connid");
+	    console.log(id.value)
+	    window.open("https://prod.cloudcharge.se/services/ext/notification/sms?message="+id.value+"&from=4794504610");
+    }
+  </script>
+
+</html>
